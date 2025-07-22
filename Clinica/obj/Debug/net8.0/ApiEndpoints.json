@@ -1,0 +1,44 @@
+[
+  {
+    "ContainingType": "Clinica.Controllers.ClientController",
+    "Method": "CreateClient",
+    "RelativePath": "api/Client",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "client",
+        "Type": "Clinica.Entities.ClientEntity",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Clinica.Controllers.ClientController",
+    "Method": "GetAllClients",
+    "RelativePath": "api/Client",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Clinica.Controllers.ClientController",
+    "Method": "GetClientById",
+    "RelativePath": "api/Client/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

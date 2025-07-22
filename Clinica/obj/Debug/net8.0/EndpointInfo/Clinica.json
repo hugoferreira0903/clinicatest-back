@@ -1,0 +1,204 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Clinica",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Client": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientEntity"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientEntity"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientEntity"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Client/{id}": {
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ClientEntity": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "cpf": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "consultas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConsultaClientEntity"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConsultaClientEntity": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dataConsulta": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "clientEntityId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "clientEntity": {
+            "$ref": "#/components/schemas/ClientEntity"
+          },
+          "consultaEntityId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "consultaEntity": {
+            "$ref": "#/components/schemas/ConsultaEntity"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConsultaEntity": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "preco": {
+            "type": "number",
+            "format": "double"
+          },
+          "atendimento": {
+            "type": "string",
+            "nullable": true
+          },
+          "medicoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "medico": {
+            "$ref": "#/components/schemas/MedicoEntity"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MedicoEntity": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "cpf": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "consultas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConsultaEntity"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
